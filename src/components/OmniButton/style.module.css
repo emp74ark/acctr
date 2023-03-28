@@ -1,0 +1,8 @@
+.omniButton {
+    border: none;
+    background: lightgray;
+    font-size: 1em;
+    padding: .5em;
+    width: 5em;
+    border-radius: 0 .9em .9em 0;
+}
