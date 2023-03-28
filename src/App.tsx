@@ -1,12 +1,18 @@
 import React from 'react';
-import { OmniBar } from './components';
+import { Home, Records } from './pages';
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
+import { Header } from './components';
 
 function App() {
   return (
-      <>
-        <h1>Test</h1>
-        <OmniBar/>
-      </>
+      <BrowserRouter>
+        <Header/>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/records' element={<Records/>}/>
+        </Routes>
+        <Outlet/>
+      </BrowserRouter>
   );
 }
 

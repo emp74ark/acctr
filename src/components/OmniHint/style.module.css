@@ -5,7 +5,9 @@
     align-items: center;
     justify-content: center;
     padding: .5em;
-    border-radius: .9em 0 0 .9em;
+    border-radius: 18px 0 0 18px;
+    border: 0 solid darkgrey;
+    border-right-width: 1px;
 }
 
 .search {
