@@ -3,7 +3,8 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import style from './style.module.css';
 import { OmniActionType } from './OmniBar.types';
 import { OmniButton } from '../OmniButton';
-import { inputParser, IRecord } from '../../utils/inputParser';
+import { inputParser } from '../../utils';
+import { IRecord } from '../../entities';
 
 export const OmniBar = () => {
   const [type, setType] = useState<OmniActionType>(OmniActionType.add);
