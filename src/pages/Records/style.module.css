@@ -1,0 +1,14 @@
+.records {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.record {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: .1em dotted darkgrey;
+    padding: .5em;
+    gap: .5em
+}

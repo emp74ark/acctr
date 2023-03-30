@@ -4,12 +4,14 @@ import style from './style.module.css';
 import { OmniActionType } from './OmniBar.types';
 import { OmniButton } from '../OmniButton';
 import { inputParser } from '../../utils';
-import { IRecord } from '../../entities';
+import { useDispatch } from 'react-redux';
+import { addRecord } from '../../store/recordsSlice';
 
 export const OmniBar = () => {
   const [type, setType] = useState<OmniActionType>(OmniActionType.add);
   const [input, setInput] = useState<string>();
-  const [records, setRecord] = useState<IRecord[]>([]);
+  // const [records, setRecord] = useState<IRecord[]>([]);
+  const dispatch = useDispatch()
 
   const onInput = (event: ChangeEvent<HTMLInputElement>) => {
     setInput(event.currentTarget.value);
@@ -22,7 +24,8 @@ export const OmniBar = () => {
   }, [input]);
 
   const parseInput = () => {
-    if (input) setRecord([...records, inputParser(input)]);
+    // if (input) setRecord([...records, inputParser(input)]);
+    if (input) dispatch(addRecord(inputParser(input)));
     setInput('');
   };
 
@@ -33,15 +36,15 @@ export const OmniBar = () => {
           <input type="text" onChange={ onInput } value={ input } className={ style.bar }/>
           <OmniButton type={ type } cb={ parseInput }/>
         </div>
-        <div>
-          { records.map(({ label, amount, tags }) => (
-              <div>
-                <span>label: { label }</span>
-                <span>amount: { amount }</span>
-                <span>tags: { tags.join(', ') }</span>
-              </div>
-          )) }
-        </div>
+        {/*<div>*/ }
+        {/*  { records.map(({ label, amount, tags }) => (*/ }
+        {/*      <div>*/ }
+        {/*        <span>label: { label }</span>*/ }
+        {/*        <span>amount: { amount }</span>*/ }
+        {/*        <span>tags: { tags.join(', ') }</span>*/ }
+        {/*      </div>*/ }
+        {/*  )) }*/ }
+        {/*</div>*/}
       </>
   );
 };

@@ -3,10 +3,11 @@ import { IRecord } from "../entities";
 export function inputParser(text: string): IRecord {
   const elements = text.split(' ');
   const result: IRecord = {
+    id: Date.now(),
     label: '',
     tags: [],
     amount: 0,
-    date: Date.now(),
+    date: new Date(),
   };
   elements.forEach(el => {
     if (el.startsWith('#')) result.tags.push(el.substring(1));
