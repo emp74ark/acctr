@@ -15,10 +15,6 @@ export const Records = () => {
     dispatch(removeRecord(id));
   };
 
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event);
-  };
-
   const onEdit = (record: IRecord) => {
     setEdit(record);
   };
