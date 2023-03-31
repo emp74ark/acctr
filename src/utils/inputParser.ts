@@ -1,4 +1,4 @@
-import { IRecord } from "../entities";
+import {IRecord} from "../entities";
 
 export function inputParser(text: string): IRecord {
   const elements = text.split(' ');
@@ -6,7 +6,7 @@ export function inputParser(text: string): IRecord {
     id: Date.now(),
     label: '',
     tags: [],
-    amount: 0,
+    amount: 1,
     date: Date.now(),
   };
   elements.forEach(el => {
