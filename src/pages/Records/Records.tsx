@@ -4,7 +4,7 @@ import { RootState } from '../../store/store';
 import { removeRecord } from '../../store/recordsSlice';
 import { useState } from 'react';
 import { IRecord } from '../../entities';
-import { EditRecord } from '../EditRecord';
+import { EditRecord } from '../../components';
 
 export const Records = () => {
   const { records } = useSelector((state: RootState) => state.records);
