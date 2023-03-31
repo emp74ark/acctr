@@ -12,7 +12,7 @@ export function inputParser(text: string): IRecord {
   elements.forEach(el => {
     if (el.startsWith('#')) result.tags.push(el.substring(1));
     else if (el.startsWith('*')) result.amount = Number(el.substring(1));
-    else result.label = el.trim();
+    else result.label += el + ' ';
   });
   return result;
 }
