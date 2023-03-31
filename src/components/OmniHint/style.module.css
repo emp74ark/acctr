@@ -8,6 +8,7 @@
     border-radius: 18px 0 0 18px;
     border: 0 solid darkgrey;
     border-right-width: 1px;
+    cursor: pointer;
 }
 
 .search {
