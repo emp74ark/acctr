@@ -2,7 +2,7 @@ import style from './style.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { removeRecord } from '../../store/recordsSlice';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { IRecord } from '../../entities';
 import { EditRecord } from '../../components';
 
