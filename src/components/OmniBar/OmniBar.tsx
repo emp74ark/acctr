@@ -9,7 +9,7 @@ import { addRecord } from '../../store/recordsSlice';
 
 export const OmniBar = () => {
   const [type, setType] = useState<OmniActionType>(OmniActionType.add);
-  const [input, setInput] = useState<string>();
+  const [input, setInput] = useState<string>('');
   const dispatch = useDispatch();
 
   const onInput = (event: ChangeEvent<HTMLInputElement>) => {

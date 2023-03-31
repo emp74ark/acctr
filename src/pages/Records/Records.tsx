@@ -23,6 +23,10 @@ export const Records = () => {
     setEdit(undefined);
   };
 
+  const dateDecorator = (date: number) => {
+      return (new Date(date)).toISOString().slice(0, 10)
+  }
+
   return (
       <>
         <h2>Records</h2>
@@ -30,7 +34,7 @@ export const Records = () => {
           {
             records.map(({ id, label, amount, date, tags }) => (
                 <div key={ id } className={ style.record }>
-                  <span>{ date.toISOString().slice(0, 10) }</span>
+                  <span>{ dateDecorator(date) }</span>
                   <span>{ label }</span>
                   <span>{ amount }</span>
                   <span>{ tags.join(', ') }</span>

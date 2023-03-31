@@ -1,6 +1,6 @@
 export interface IRecord {
   id: number;
-  date: Date;
+  date: number;
   label: string;
   tags: string[];
   amount: number;

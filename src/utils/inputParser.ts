@@ -7,7 +7,7 @@ export function inputParser(text: string): IRecord {
     label: '',
     tags: [],
     amount: 0,
-    date: new Date(),
+    date: Date.now(),
   };
   elements.forEach(el => {
     if (el.startsWith('#')) result.tags.push(el.substring(1));
