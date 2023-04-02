@@ -3,10 +3,9 @@ import {ChangeEvent, useEffect, useState} from 'react';
 import style from './style.module.css';
 import {OmniActionType} from './OmniBar.types';
 import {OmniButton} from '../OmniButton';
-import {inputParser} from '../../utils';
+import {inputParser, mandatorySymbols} from '../../utils';
 import {useDispatch} from 'react-redux';
 import {addRecord} from '../../store/recordsSlice';
-import {mandatorySymbols} from "../../utils/mandatorySymbols";
 
 export const OmniBar = () => {
   const [type, setType] = useState<OmniActionType>(OmniActionType.add);
