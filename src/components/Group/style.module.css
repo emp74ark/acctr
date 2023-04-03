@@ -1,0 +1,13 @@
+.group {
+    width: 30ch;
+    background: lightcyan;
+    padding: 1em;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em;
+    font-style: italic;
+    font-size: small;
+}

@@ -1,0 +1,18 @@
+.page__wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.groups {
+    display: flex;
+    gap: 1em;
+    padding: 1em;
+    flex-wrap: wrap;
+}
+
+.tags {
+    width: 40ch;
+    background: floralwhite;
+    padding: 1em;
+}

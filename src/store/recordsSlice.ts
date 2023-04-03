@@ -22,7 +22,7 @@ export const recordsSlice = createSlice({
     editRecord: (state, action: PayloadAction<IRecord>) => {
       const filteredList = state.records.filter(record => record.id !== action.payload.id);
       state.records = [...filteredList, action.payload];
-    },
+    }
   }
 });
 

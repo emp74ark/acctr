@@ -1,4 +1,3 @@
-import style from './style.module.css';
 import { IRecord } from '../../entities';
 import { useDispatch } from 'react-redux';
 import { editRecord } from '../../store/recordsSlice';
@@ -30,8 +29,8 @@ export const EditRecord = ({ record, cb }: { record: IRecord, cb: () => void }) 
   };
 
   return (
-      <div className={ style.wrapper }>
-        <div className={ style.editor }>
+      <div className="shadow">
+        <div className="modal">
           <label>Label
             <input
                 type="text"
