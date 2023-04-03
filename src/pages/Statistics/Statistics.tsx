@@ -6,7 +6,7 @@ import { AddGroup } from '../../components/AddGroup';
 import { Group } from '../../components/Group';
 
 export const Statistics = () => {
-  const { records: { records }, groups: { groups } } = useSelector((state: RootState) => state);
+  const { records: { records, tags }, groups: { groups } } = useSelector((state: RootState) => state);
   const [current, setCurrent] = useState<string>();
 
   const openAddGroupModal = () => {
@@ -15,12 +15,6 @@ export const Statistics = () => {
 
   const closeAddGroupModal = () => {
     setCurrent(undefined);
-  };
-
-  const getTags = () => { // todo: create redux slice
-    const tagsSet: Set<string> = new Set();
-    records.forEach(({ tags }) => tags.forEach(tag => tagsSet.add(tag)));
-    return Array.from(tagsSet);
   };
 
   return (
@@ -36,7 +30,7 @@ export const Statistics = () => {
           </div>
           <div className={ style.tags }>
             <h3>Tags</h3>
-            { getTags().map(tag => (
+            { tags.map(tag => (
                 <span key={ tag } className="tag">{ tag }</span>
             )) }
           </div>
