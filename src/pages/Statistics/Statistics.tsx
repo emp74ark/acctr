@@ -2,7 +2,7 @@ import style from './style.module.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { useState } from 'react';
-import { AddGroup } from '../../components/AddGroup';
+import { GroupEditor } from '../../components/GroupEditor';
 import { Group } from '../../components/Group';
 
 export const Statistics = () => {
@@ -10,7 +10,7 @@ export const Statistics = () => {
   const [current, setCurrent] = useState<string>();
 
   const openAddGroupModal = () => {
-    setCurrent('New group');
+    setCurrent(`New group ${records.length + 1}`);
   };
 
   const closeAddGroupModal = () => {
@@ -35,7 +35,7 @@ export const Statistics = () => {
             )) }
           </div>
         </div>
-        { current && <AddGroup cb={ closeAddGroupModal }/> }
+        { current && <GroupEditor type='add' cancel={ closeAddGroupModal } group={{id: Date.now(), name: current}}/> }
       </>
   );
 };

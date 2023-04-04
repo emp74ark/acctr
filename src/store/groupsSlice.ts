@@ -1,30 +1,35 @@
-import { IGroup } from '../entities';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {IGroup} from '../entities';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 interface GroupsState {
-  groups: IGroup[];
+    groups: IGroup[];
 }
 
 const initialState: GroupsState = {
-  groups: [],
+    groups: [],
 };
 
 export const groupsSlice = createSlice({
-  name: 'groups',
-  initialState,
-  reducers: {
-    addGroup: (state, action: PayloadAction<IGroup>) => {
-      state.groups = [...state.groups, action.payload];
-    },
-    removeGroup: (state, action: PayloadAction<number>) => {
-      state.groups = state.groups.filter(group => group.id !== action.payload);
-    },
-  }
+    name: 'groups',
+    initialState,
+    reducers: {
+        addGroup: (state, action: PayloadAction<IGroup>) => {
+            state.groups = [...state.groups, action.payload];
+        },
+        removeGroup: (state, action: PayloadAction<number>) => {
+            state.groups = state.groups.filter(group => group.id !== action.payload);
+        },
+        editGroup: (state, action: PayloadAction<IGroup>) => {
+            const filteredGroups = state.groups.filter(group => group.id !== action.payload.id);
+            state.groups = [...filteredGroups, action.payload];
+        }
+    }
 });
 
 export const {
-  addGroup,
-  removeGroup
+    addGroup,
+    removeGroup,
+    editGroup,
 } = groupsSlice.actions;
 
 export default groupsSlice.reducer;
