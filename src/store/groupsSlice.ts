@@ -5,8 +5,10 @@ interface GroupsState {
     groups: IGroup[];
 }
 
+const savedData = JSON.parse(localStorage.getItem('acctr') || '{}')
+
 const initialState: GroupsState = {
-    groups: [],
+    groups: savedData.groups || [],
 };
 
 export const groupsSlice = createSlice({

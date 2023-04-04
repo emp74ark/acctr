@@ -6,9 +6,11 @@ interface RecordsState {
   tags: string[];
 }
 
+const savedData = JSON.parse(localStorage.getItem('acctr') || '{}')
+
 const initialState: RecordsState = {
-  records: [],
-  tags: [],
+  records: savedData.records || [],
+  tags: savedData.tags || [],
 };
 
 const getTags = (records: IRecord[]) => {
