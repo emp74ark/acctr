@@ -1,18 +1,18 @@
-import {IGroup} from '../entities';
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { IGroup } from "../entities";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface GroupsState {
     groups: IGroup[];
 }
 
-const savedData = JSON.parse(localStorage.getItem('acctr') || '{}')
+const savedData = JSON.parse(localStorage.getItem("acctr") || "{}")
 
 const initialState: GroupsState = {
     groups: savedData.groups || [],
 };
 
 export const groupsSlice = createSlice({
-    name: 'groups',
+    name: "groups",
     initialState,
     reducers: {
         addGroup: (state, action: PayloadAction<IGroup>) => {
@@ -23,8 +23,8 @@ export const groupsSlice = createSlice({
         },
         editGroup: (state, action: PayloadAction<IGroup>) => {
             const filteredGroups = state.groups.filter(group => group.id !== action.payload.id);
-            const uniqTags = Array.from(new Set (action.payload.tags))
-            state.groups = [...filteredGroups, {...action.payload, tags: uniqTags}];
+            const uniqTags = Array.from(new Set(action.payload.tags))
+            state.groups = [...filteredGroups, { ...action.payload, tags: uniqTags }];
         }
     }
 });

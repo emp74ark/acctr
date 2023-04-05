@@ -1,7 +1,7 @@
-import {IGroup} from "../../entities";
+import { IGroup } from "../../entities";
 
 export interface GroupEditorProps {
     group: IGroup;
-    type: 'add' | 'edit';
+    type: "add" | "edit";
     cancel: () => void
 }

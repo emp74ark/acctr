@@ -1,4 +1,4 @@
 export enum OmniActionType {
-  search = 'search',
-  add = 'add',
+    search = "search",
+    add = "add",
 }

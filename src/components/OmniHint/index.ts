@@ -1,1 +1,1 @@
-export { OmniHint } from './OmniHint';
+export { OmniHint } from "./OmniHint";
