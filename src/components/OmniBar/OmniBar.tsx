@@ -5,7 +5,10 @@ import { OmniActionType } from "./OmniBar.types";
 import { OmniButton } from "../OmniButton";
 import { inputParser, mandatorySymbols } from "../../utils";
 import { useDispatch } from "react-redux";
-import { addRecord } from "../../store/recordsSlice";
+import { addRecord, findRecords } from "../../store/recordsSlice";
+import { OmniHelp } from "./OmniHelp";
+import { OmniError } from "./OmniError";
+import { SearchResults } from "../SearchResults";
 
 export const OmniBar = () => {
     const [type, setType] = useState<OmniActionType>(OmniActionType.add);
@@ -18,7 +21,14 @@ export const OmniBar = () => {
     };
 
     useEffect(() => {
-        setError(mandatorySymbols(input))
+        switch (type) {
+            case OmniActionType.add:
+                setError(mandatorySymbols(input));
+                break;
+            case OmniActionType.search:
+                if (!input) dispatch(findRecords(""));
+                break;
+        }
     }, [input]);
 
     const hotKeys = (e: KeyboardEvent) => {
@@ -37,7 +47,7 @@ export const OmniBar = () => {
     };
 
     const onSearch = () => {
-        console.log(`search for ${input}`);
+        if (input) dispatch(findRecords(input))
     };
 
     const onOmniButton = () => {
@@ -50,7 +60,9 @@ export const OmniBar = () => {
 
     return (
             <>
-                <div className={style.wrapper}>
+                <div className={type === OmniActionType.add
+                        ? `${style.wrapper} ${style.add}`
+                        : `${style.wrapper} ${style.search}`}>
                     <OmniHint type={type} cb={changeOmniType}/>
                     <input
                             type="text"
@@ -64,10 +76,9 @@ export const OmniBar = () => {
                             cb={onOmniButton}
                             disabled={!input?.trim() || Boolean(error?.amount) || Boolean(error?.label)}/>
                 </div>
-                <div className={style.error}>
-                    <span>{error?.amount}</span>
-                    <span>{error?.label}</span>
-                </div>
+                <OmniError error={error}/>
+                {type === OmniActionType.add && <OmniHelp/>}
+                {type === OmniActionType.search && <SearchResults/>}
             </>
     );
 };

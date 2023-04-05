@@ -4,7 +4,15 @@
     justify-content: space-between;
     border: 1px solid darkgrey;
     border-radius: 20px;
-    margin: .5em;
+    transition: margin-top .3s;
+}
+
+.add {
+    margin-top: 25vh;
+}
+
+.search {
+    margin-top: 1em;
 }
 
 .bar {
@@ -22,4 +30,10 @@
     align-items: center;
     justify-content: center;
     gap: 1ch;
+}
+
+.help {
+    font-size: small;
+    color: darkgrey;
+    list-style: square;
 }

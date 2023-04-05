@@ -1,10 +1,4 @@
 .home {
-    margin: 30vh auto;
+    margin: auto;
     max-width: 60ch;
-}
-
-.help {
-    font-size: small;
-    color: darkgrey;
-    list-style: square;
 }
