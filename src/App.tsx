@@ -15,7 +15,7 @@ function App() {
     }, [records, groups]);
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={'/acctr'}>
             <Header/>
             <DndProvider backend={HTML5Backend}>
                 <Routes>
