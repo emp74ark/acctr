@@ -23,7 +23,8 @@ export const groupsSlice = createSlice({
         },
         editGroup: (state, action: PayloadAction<IGroup>) => {
             const filteredGroups = state.groups.filter(group => group.id !== action.payload.id);
-            state.groups = [...filteredGroups, action.payload];
+            const uniqTags = Array.from(new Set (action.payload.tags))
+            state.groups = [...filteredGroups, {...action.payload, tags: uniqTags}];
         }
     }
 });

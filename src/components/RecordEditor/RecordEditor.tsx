@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { editRecord } from '../../store/recordsSlice';
 import { ChangeEvent, useState } from 'react';
 
-export const EditRecord = ({ record, cb }: { record: IRecord, cb: () => void }) => {
+export const RecordEditor = ({ record, cb }: { record: IRecord, cb: () => void }) => {
   const { label, amount } = record;
   const dispatch = useDispatch();
   const [field, setField] = useState<Record<string, string | number>>();

@@ -1,0 +1,27 @@
+.tags {
+    width: 40ch;
+    background: floralwhite;
+    padding: 1em;
+}
+
+.remover {
+    position: relative;
+}
+
+.remover button {
+    position: absolute;
+    top: -1em;
+    right: 0;
+    background: firebrick;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.5);
+    transition: all .3s;
+}
+
+.remover:hover button {
+    transform: scale(1);
+}
