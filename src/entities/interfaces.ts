@@ -5,3 +5,9 @@ export interface IRecord {
   tags: string[];
   amount: number;
 }
+
+export interface IGroup {
+  id: number;
+  name: string;
+  tags?: string[];
+}
