@@ -6,17 +6,14 @@ import { getAmountByTag } from "../../utils";
 import { RootState } from "../../store/store";
 import { useState } from "react";
 import { GroupEditor } from "../GroupEditor";
-import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
-import { Pie } from "react-chartjs-2";
-import * as uniqolor from "uniqolor";
 import { Tag } from "../Tags";
 import { useDrop } from "react-dnd";
 import { TagRemover } from "../Tags/TagRemover";
-
-ChartJS.register(ArcElement, Tooltip, Legend);
+import { AmountChart, TimeChart } from "../Chart";
 
 enum GroupView {
     "pieChart" = "pieChart",
+    "timeChart" = "timeChart",
     "text" = "text",
 }
 
@@ -46,25 +43,23 @@ export const Group = (group: IGroup) => {
         setView(type)
     }
 
-    const data = {
-        labels: group.tags,
-        datasets: [
-            {
-                label: "amount",
-                data: group.tags?.map(tag => getAmountByTag(tag, records)),
-                backgroundColor: group.tags?.map(tag => uniqolor.random().color),
-                borderColor: group.tags?.map(tag => "#fff"),
-                borderWidth: 3,
-            },
-        ],
-    };
-
     return (
             <div className={style.group}>
                 <h4>{group.name}</h4>
-                <button onClick={() => onGroupView(GroupView.text)} disabled={view === GroupView.text}>Text</button>
-                <button onClick={() => onGroupView(GroupView.pieChart)} disabled={view === GroupView.pieChart}>
-                    Pie Chart
+                <button
+                        onClick={() => onGroupView(GroupView.text)}
+                        disabled={view === GroupView.text}>
+                    Text
+                </button>
+                <button
+                        onClick={() => onGroupView(GroupView.pieChart)}
+                        disabled={view === GroupView.pieChart}>
+                    Amount
+                </button>
+                <button
+                        onClick={() => onGroupView(GroupView.timeChart)}
+                        disabled={view === GroupView.timeChart}>
+                    Time
                 </button>
                 <div
                         className={isOver ? `${style.tags} ${style.tags_over}` : style.tags}
@@ -84,10 +79,8 @@ export const Group = (group: IGroup) => {
                             ))}
                         </ul>
                 }
-                {
-                        view === GroupView.pieChart &&
-                        <Pie data={data}/>
-                }
+                {view === GroupView.pieChart && <AmountChart group={group}/>}
+                {view === GroupView.timeChart && <TimeChart group={group}/>}
 
                 <button onClick={onRemove}>Remove</button>
                 <button onClick={onEdit}>Edit</button>

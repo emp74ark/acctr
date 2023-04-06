@@ -7,4 +7,5 @@ export * from "./RecordEditor";
 export * from "./Group";
 export * from "./GroupEditor";
 export * from "./Tags";
-export * from "./SearchResults"
+export * from "./SearchResults";
+export * from "./Chart";
