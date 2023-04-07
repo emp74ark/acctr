@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("acctr", JSON.stringify({ records, tags, groups }))
-  }, [records, groups]);
+  }, [records, groups, tags]);
 
   return (
       <BrowserRouter basename={"/acctr"}>
