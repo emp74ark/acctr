@@ -1,28 +1,30 @@
-name: Project deploy
+name: Deploy
 on:
   push:
-    branches: [ "master" ]
+    branches: [ master ]
   pull_request:
-    branches: [ "master" ]
-
-  workflow_dispatch:
+    branches: [ master ]
 
 jobs:
-  build:
+  build_test:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3
-
-      - name: Install & build
-        run: |
-          npm run install
-          npm run build
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
-          token: ${{ secrets.TOKEN}}
-          branch: gh-pages
-          folder: build
-          clean: true
+          node-version: ${{ matrix.node-version }}
+      - name: npm ci, build
+        run: |
+          npm ci
+          npm run build
+      - name: deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.TOKEN }}
+          publish_dir: ./build
