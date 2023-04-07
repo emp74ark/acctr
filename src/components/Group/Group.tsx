@@ -62,7 +62,7 @@ export const Group = (group: IGroup) => {
             ref={dropRef}
         >
           {group.tags?.map(tag => (
-              <TagRemover group={group} tag={tag}>
+              <TagRemover key={tag} group={group} tag={tag}>
                 <Tag tag={tag}/>
               </TagRemover>
           ))}
@@ -71,7 +71,7 @@ export const Group = (group: IGroup) => {
             view === GroupView.text &&
             <ul>
               {group.tags?.map(tag => (
-                  <li>{tag}: {getAmountByTag(tag, records)}</li>
+                  <li key={tag}>{tag}: {getAmountByTag(tag, records)}</li>
               ))}
             </ul>
         }
