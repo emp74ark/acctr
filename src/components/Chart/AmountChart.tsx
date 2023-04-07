@@ -13,7 +13,7 @@ export const AmountChart = ({ group }: { group: IGroup }) => {
   const { records } = useSelector((state: RootState) => state.records);
 
   const getData = useMemo(() => {
-    return group.tags?.map(tag => getAmountByTag(tag, records))
+    return group.tags?.map(tag => getAmountByTag(tag, records));
   }, [records, group.tags]);
 
   const data = {
@@ -29,5 +29,5 @@ export const AmountChart = ({ group }: { group: IGroup }) => {
     ],
   };
 
-  return <Pie data={data}/>
+  return <Pie data={data}/>;
 };

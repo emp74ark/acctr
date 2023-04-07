@@ -36,8 +36,8 @@ export const Group = (group: IGroup) => {
   const onEdit = useCallback(() => setEdit(!edit), [edit]);
 
   const onGroupView = useCallback((type: GroupView) => {
-    setView(type)
-  }, [])
+    setView(type);
+  }, []);
 
   return (
       <div className={style.group}>

@@ -1,20 +1,20 @@
 .hint {
-    width: 5em;
-    transition: background-color .5s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: .5em;
-    border-radius: 18px 0 0 18px;
-    border: 0 solid darkgrey;
-    border-right-width: 1px;
-    cursor: pointer;
+  width: 5em;
+  transition: background-color .5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5em;
+  border-radius: 18px 0 0 18px;
+  border: 0 solid darkgrey;
+  border-right-width: 1px;
+  cursor: pointer;
 }
 
 .search {
-    background-color: greenyellow;
+  background-color: greenyellow;
 }
 
 .add {
-    background-color: lightskyblue;
+  background-color: lightskyblue;
 }

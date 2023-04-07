@@ -1,17 +1,17 @@
 .search {
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
-    margin: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  margin: 1em;
 }
 
 .row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: .3em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .3em;
 }
 
 .row:nth-child(odd) {
-    background: lightyellow;
+  background: lightyellow;
 }

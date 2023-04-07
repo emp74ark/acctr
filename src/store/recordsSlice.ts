@@ -7,7 +7,7 @@ interface RecordsState {
   search: IRecord[];
 }
 
-const savedData = JSON.parse(localStorage.getItem("acctr") || "{}")
+const savedData = JSON.parse(localStorage.getItem("acctr") || "{}");
 
 const initialState: RecordsState = {
   records: savedData.records || [],
@@ -44,10 +44,10 @@ export const recordsSlice = createSlice({
         state.search = state.records.filter(record => {
           return (record.label.split(" ").some(word => clearedQuery.includes(word)))
               ||
-              (record.tags.some(tag => clearedQuery.includes(tag)))
-        })
+              (record.tags.some(tag => clearedQuery.includes(tag)));
+        });
       } else {
-        state.search = []
+        state.search = [];
       }
     }
   }

@@ -37,7 +37,7 @@ export const OmniBar = () => {
   }, [input, dispatch]);
 
   const onSearch = useCallback(() => {
-    if (input) dispatch(findRecords(input))
+    if (input) dispatch(findRecords(input));
   }, [input, dispatch]);
 
   const onOmniButton = useCallback(() => {

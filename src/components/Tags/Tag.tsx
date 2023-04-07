@@ -5,22 +5,22 @@ import { editGroup } from "../../store/groupsSlice";
 
 interface DropResults {
   dropEffect: string;
-  group: IGroup
+  group: IGroup;
 }
 
 export const Tag = ({ tag }: { tag: string }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [{ isDragging }, dragRef] = useDrag({
     type: "tag",
     item: { name: tag },
     end: (item, monitor) => {
-      const dropResult = monitor.getDropResult<DropResults>()
+      const dropResult = monitor.getDropResult<DropResults>();
       if (dropResult) {
-        const { group } = dropResult
+        const { group } = dropResult;
         dispatch(editGroup({
           ...group,
           tags: [...group.tags || [], item.name],
-        }))
+        }));
       }
     },
     collect: (monitor) => ({

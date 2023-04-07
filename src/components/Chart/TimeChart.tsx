@@ -21,24 +21,24 @@ export const TimeChart = ({ group }: { group: IGroup }) => {
 
   const findByTags = useCallback(() => {
     return records.filter(record => {
-      return record.tags.some(tag => group.tags?.includes(tag))
-    })
-  }, [group.tags, records])
+      return record.tags.some(tag => group.tags?.includes(tag));
+    });
+  }, [group.tags, records]);
 
   const findByTag = useCallback((tag: string) => {
     return {
       label: tag,
       data: records.filter(record => record.tags.includes(tag)).map(record => record.amount),
       backgroundColor: uniqolor.random().color,
-    }
-  }, [records])
+    };
+  }, [records]);
 
   const getTimePoints = useCallback(() => {
-    return Array.from(new Set(findByTags().map(record => shortDate(record.date))))
-  }, [findByTags])
+    return Array.from(new Set(findByTags().map(record => shortDate(record.date))));
+  }, [findByTags]);
 
   const getData = useMemo(() => {
-    return group.tags?.map(tag => findByTag(tag)) || []
+    return group.tags?.map(tag => findByTag(tag)) || [];
   }, [group.tags, findByTag]);
 
   const data = {
@@ -46,5 +46,5 @@ export const TimeChart = ({ group }: { group: IGroup }) => {
     datasets: getData,
   };
 
-  return <Line data={data}/>
+  return <Line data={data}/>;
 };

@@ -17,7 +17,7 @@ export const GroupEditor = ({ group, cancel, type }: GroupEditorProps) => {
   }, []);
 
   const onSave = useCallback(() => {
-    const newData = { ...group, name, tags }
+    const newData = { ...group, name, tags };
     switch (type) {
       case "add":
         dispatch(addGroup(newData));
@@ -27,7 +27,7 @@ export const GroupEditor = ({ group, cancel, type }: GroupEditorProps) => {
         break;
     }
     setName("");
-    setTags([])
+    setTags([]);
     cancel();
   }, [group, name, tags, type, dispatch, cancel]);
 

@@ -22,7 +22,7 @@ export const RecordEditor = ({ record, cb }: { record: IRecord, cb: () => void }
         ...record,
         ...field,
       }));
-      cb()
+      cb();
     }
   }, [field, dispatch, record, cb]);
 

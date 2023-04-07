@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import style from "./style.module.css"
+import style from "./style.module.css";
 
 export const SearchResults = () => {
   const { search } = useSelector((state: RootState) => state.records);

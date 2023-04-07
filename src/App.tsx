@@ -5,13 +5,13 @@ import { Header } from "./components";
 import { useSelector } from "react-redux";
 import { RootState } from "./store/store";
 import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend"
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 function App() {
-  const { records: { records, tags }, groups: { groups } } = useSelector((state: RootState) => state)
+  const { records: { records, tags }, groups: { groups } } = useSelector((state: RootState) => state);
 
   useEffect(() => {
-    localStorage.setItem("acctr", JSON.stringify({ records, tags, groups }))
+    localStorage.setItem("acctr", JSON.stringify({ records, tags, groups }));
   }, [records, groups, tags]);
 
   return (

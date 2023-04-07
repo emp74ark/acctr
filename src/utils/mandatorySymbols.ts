@@ -5,5 +5,5 @@ export function mandatorySymbols(text: string) {
   return {
     amount: amount ? "too many amount values" : "",
     label: label ? "label is required" : "",
-  }
+  };
 }

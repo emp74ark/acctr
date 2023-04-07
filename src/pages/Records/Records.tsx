@@ -12,7 +12,7 @@ export const Records = () => {
   const dispatch = useDispatch();
   const [edit, setEdit] = useState<IRecord>();
 
-  const onRemove = useCallback((id: number) => dispatch(removeRecord(id)), [dispatch])
+  const onRemove = useCallback((id: number) => dispatch(removeRecord(id)), [dispatch]);
 
   const onEdit = useCallback((record: IRecord) => setEdit(record), []);
 
