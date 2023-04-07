@@ -9,25 +9,25 @@ import { useMemo } from "react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const AmountChart = ({group}:{group: IGroup}) => {
-    const { records } = useSelector((state: RootState) => state.records);
+export const AmountChart = ({ group }: { group: IGroup }) => {
+  const { records } = useSelector((state: RootState) => state.records);
 
-    const getData = useMemo(() => {
-        return group.tags?.map(tag => getAmountByTag(tag, records))
-    }, [records, group.tags]);
+  const getData = useMemo(() => {
+    return group.tags?.map(tag => getAmountByTag(tag, records))
+  }, [records, group.tags]);
 
-    const data = {
-        labels: group.tags,
-        datasets: [
-            {
-                label: "amount",
-                data: getData,
-                backgroundColor: group.tags?.map(() => uniqolor.random().color),
-                borderColor: group.tags?.map(() => "#fff"),
-                borderWidth: 3,
-            },
-        ],
-    };
+  const data = {
+    labels: group.tags,
+    datasets: [
+      {
+        label: "amount",
+        data: getData,
+        backgroundColor: group.tags?.map(() => uniqolor.random().color),
+        borderColor: group.tags?.map(() => "#fff"),
+        borderWidth: 3,
+      },
+    ],
+  };
 
-    return <Pie data={data}/>
+  return <Pie data={data}/>
 };
