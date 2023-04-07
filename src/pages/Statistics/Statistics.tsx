@@ -1,20 +1,16 @@
 import style from "./style.module.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Group, GroupEditor, TagsList } from "../../components";
 
 export const Statistics = () => {
     const { records: { records }, groups: { groups } } = useSelector((state: RootState) => state);
     const [current, setCurrent] = useState<string>();
 
-    const openAddGroupModal = () => {
-        setCurrent(`New group ${records.length + 1}`);
-    };
+    const openAddGroupModal = useCallback(() => setCurrent("New group"), []);
 
-    const closeAddGroupModal = () => {
-        setCurrent(undefined);
-    };
+    const closeAddGroupModal = useCallback(() => setCurrent(undefined), []);
 
     return (
             <>

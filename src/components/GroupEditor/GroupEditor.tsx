@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addGroup, editGroup } from "../../store/groupsSlice";
 import { GroupEditorProps } from "./GroupEditor.types";
@@ -8,15 +8,15 @@ export const GroupEditor = ({ group, cancel, type }: GroupEditorProps) => {
     const [tags, setTags] = useState<string[]>(group?.tags ? group.tags : []);
     const dispatch = useDispatch();
 
-    const onName = (e: ChangeEvent<HTMLInputElement>) => {
+    const onName = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         setName(e.currentTarget.value.trim());
-    };
+    }, []);
 
-    const onTags = (e: ChangeEvent<HTMLInputElement>) => {
+    const onTags = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         setTags(e.currentTarget.value.split(", "));
-    };
+    }, []);
 
-    const onSave = () => {
+    const onSave = useCallback(() => {
         const newData = { ...group, name, tags }
         switch (type) {
             case "add":
@@ -29,11 +29,9 @@ export const GroupEditor = ({ group, cancel, type }: GroupEditorProps) => {
         setName("");
         setTags([])
         cancel();
-    };
+    }, [group, name, tags, type, dispatch, cancel]);
 
-    const onCancel = () => {
-        cancel();
-    };
+    const onCancel = useCallback(() => cancel(), [cancel]);
 
     return (
             <div className="shadow">

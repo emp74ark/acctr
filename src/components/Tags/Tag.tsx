@@ -27,6 +27,7 @@ export const Tag = ({ tag }: { tag: string }) => {
             isDragging: monitor.isDragging(),
         }),
     });
+
     return (
             <span
                     ref={dragRef}

@@ -1,5 +1,5 @@
 import { OmniHint } from "../OmniHint";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import style from "./style.module.css";
 import { OmniActionType } from "./OmniBar.types";
 import { OmniButton } from "../OmniButton";
@@ -16,9 +16,9 @@ export const OmniBar = () => {
     const [error, setError] = useState<Record<string, string>>();
     const dispatch = useDispatch();
 
-    const onInput = (event: ChangeEvent<HTMLInputElement>) => {
+    const onInput = useCallback((event: ChangeEvent<HTMLInputElement>) => {
         setInput(event.currentTarget.value);
-    };
+    }, []);
 
     useEffect(() => {
         switch (type) {
@@ -31,32 +31,32 @@ export const OmniBar = () => {
         }
     }, [input]);
 
-    const hotKeys = (e: KeyboardEvent) => {
+    const parseInput = useCallback(() => {
+        if (input) dispatch(addRecord(inputParser(input)));
+        setInput("");
+    }, [input, dispatch]);
+
+    const onSearch = useCallback(() => {
+        if (input) dispatch(findRecords(input))
+    }, [input, dispatch]);
+
+    const onOmniButton = useCallback(() => {
+        type === OmniActionType.add ? parseInput() : onSearch();
+    }, [type, parseInput, onSearch]);
+
+    const changeOmniType = useCallback(() => {
+        setType(type === OmniActionType.add ? OmniActionType.search : OmniActionType.add);
+    }, [type]);
+
+    const hotKeys = useCallback((e: KeyboardEvent) => {
         if (e.altKey && e.key === "/") changeOmniType();
         if (e.key === "Enter") onOmniButton();
-    };
+    }, [changeOmniType, onOmniButton]);
 
     useEffect(() => {
         document.addEventListener("keydown", hotKeys);
         return () => document.removeEventListener("keydown", hotKeys);
     }, [hotKeys]);
-
-    const parseInput = () => {
-        if (input) dispatch(addRecord(inputParser(input)));
-        setInput("");
-    };
-
-    const onSearch = () => {
-        if (input) dispatch(findRecords(input))
-    };
-
-    const onOmniButton = () => {
-        type === OmniActionType.add ? parseInput() : onSearch();
-    };
-
-    const changeOmniType = () => {
-        setType(type === OmniActionType.add ? OmniActionType.search : OmniActionType.add);
-    };
 
     return (
             <>

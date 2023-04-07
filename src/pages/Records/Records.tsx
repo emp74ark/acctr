@@ -2,30 +2,23 @@ import style from "./style.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { removeRecord } from "../../store/recordsSlice";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { IRecord } from "../../entities";
 import { RecordEditor } from "../../components";
+import { shortDate } from "../../utils";
 
 export const Records = () => {
     const { records } = useSelector((state: RootState) => state.records);
     const dispatch = useDispatch();
     const [edit, setEdit] = useState<IRecord>();
 
-    const onRemove = (id: number) => {
-        dispatch(removeRecord(id));
-    };
+    const onRemove = useCallback((id: number) => dispatch(removeRecord(id)), [dispatch])
 
-    const onEdit = (record: IRecord) => {
-        setEdit(record);
-    };
+    const onEdit = useCallback((record: IRecord) => setEdit(record), []);
 
-    const onCancel = () => {
-        setEdit(undefined);
-    };
+    const onCancel = useCallback(() => setEdit(undefined), []);
 
-    const dateDecorator = (date: number) => {
-        return (new Date(date)).toISOString().slice(0, 10);
-    };
+    const dateDecorator = useCallback((date: number) => shortDate(date), []);
 
     return (
             <>

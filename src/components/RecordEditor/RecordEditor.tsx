@@ -1,14 +1,14 @@
 import { IRecord } from "../../entities";
 import { useDispatch } from "react-redux";
 import { editRecord } from "../../store/recordsSlice";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 
 export const RecordEditor = ({ record, cb }: { record: IRecord, cb: () => void }) => {
     const { label, amount } = record;
     const dispatch = useDispatch();
     const [field, setField] = useState<Record<string, string | number>>();
 
-    const onSave = () => {
+    const onSave = useCallback(() => {
         if (field) {
             dispatch(editRecord({
                 ...record,
@@ -16,11 +16,9 @@ export const RecordEditor = ({ record, cb }: { record: IRecord, cb: () => void }
             }));
             cb()
         }
-    };
+    }, [field, dispatch, record, cb]);
 
-    const onCancel = () => {
-        cb();
-    };
+    const onCancel = useCallback(() => cb(), [cb]);
 
     const onChange = (e: ChangeEvent<HTMLInputElement>, name: string) => {
         setField({

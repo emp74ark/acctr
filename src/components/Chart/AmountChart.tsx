@@ -5,20 +5,25 @@ import { IGroup } from "../../entities";
 import { getAmountByTag } from "../../utils";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
+import { useMemo } from "react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const AmountChart = ({group}:{group: IGroup}) => {
     const { records } = useSelector((state: RootState) => state.records);
 
+    const getData = useMemo(() => {
+        return group.tags?.map(tag => getAmountByTag(tag, records))
+    }, [records, group.tags]);
+
     const data = {
         labels: group.tags,
         datasets: [
             {
                 label: "amount",
-                data: group.tags?.map(tag => getAmountByTag(tag, records)),
-                backgroundColor: group.tags?.map(tag => uniqolor.random().color),
-                borderColor: group.tags?.map(tag => "#fff"),
+                data: getData,
+                backgroundColor: group.tags?.map(() => uniqolor.random().color),
+                borderColor: group.tags?.map(() => "#fff"),
                 borderWidth: 3,
             },
         ],

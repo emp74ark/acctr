@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeGroup } from "../../store/groupsSlice";
 import { getAmountByTag } from "../../utils";
 import { RootState } from "../../store/store";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { GroupEditor } from "../GroupEditor";
 import { Tag } from "../Tags";
 import { useDrop } from "react-dnd";
@@ -22,7 +22,7 @@ export const Group = (group: IGroup) => {
     const [view, setView] = useState<GroupView>(GroupView.pieChart);
     const dispatch = useDispatch();
     const [edit, setEdit] = useState<boolean>(false);
-    const [{ canDrop, isOver }, dropRef] = useDrop({
+    const [{ isOver }, dropRef] = useDrop({
         accept: "tag",
         drop: () => ({ group }),
         collect: (monitor) => ({
@@ -31,17 +31,13 @@ export const Group = (group: IGroup) => {
         })
     });
 
-    const onRemove = () => {
-        dispatch(removeGroup(group.id));
-    };
+    const onRemove = useCallback(() => dispatch(removeGroup(group.id)), [dispatch, group.id]);
 
-    const onEdit = () => {
-        setEdit(!edit);
-    };
+    const onEdit = useCallback(() => setEdit(!edit), [edit]);
 
-    const onGroupView = (type: GroupView) => {
+    const onGroupView = useCallback((type: GroupView) => {
         setView(type)
-    }
+    }, [])
 
     return (
             <div className={style.group}>
