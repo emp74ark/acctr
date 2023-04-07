@@ -4,6 +4,10 @@
     gap: 1em;
 }
 
+.records__header {
+    background: #ccc;
+}
+
 .record {
     display: flex;
     align-items: center;

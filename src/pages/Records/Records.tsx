@@ -24,6 +24,13 @@ export const Records = () => {
             <>
                 <h2>Records</h2>
                 <div className={style.records}>
+                    <div className={`${style.record} ${style.records__header}`}>
+                        <span>date</span>
+                        <span>label</span>
+                        <span>amount</span>
+                        <span>tags</span>
+                        <span>actions</span>
+                    </div>
                     {
                         records.map(({ id, label, amount, date, tags }) => (
                                 <div key={id} className={style.record}>
@@ -31,8 +38,10 @@ export const Records = () => {
                                     <span>{label}</span>
                                     <span>{amount}</span>
                                     <span>{tags.join(", ")}</span>
-                                    <button onClick={() => onEdit({ id, label, amount, date, tags })}>Edit</button>
-                                    <button onClick={() => onRemove(id)}>Remove</button>
+                                    <div>
+                                        <button onClick={() => onEdit({ id, label, amount, date, tags })}>Edit</button>
+                                        <button onClick={() => onRemove(id)}>Remove</button>
+                                    </div>
                                 </div>
                         ))
                     }
