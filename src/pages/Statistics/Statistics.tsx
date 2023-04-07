@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 import { Group, GroupEditor, TagsList } from "../../components";
 
 export const Statistics = () => {
-  const { records: { records }, groups: { groups } } = useSelector((state: RootState) => state);
+  const { groups: { groups } } = useSelector((state: RootState) => state);
   const [current, setCurrent] = useState<string>();
 
   const openAddGroupModal = useCallback(() => setCurrent("New group"), []);

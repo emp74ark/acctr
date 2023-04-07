@@ -23,7 +23,7 @@ export const TimeChart = ({ group }: { group: IGroup }) => {
     return records.filter(record => {
       return record.tags.some(tag => group.tags?.includes(tag))
     })
-  }, [])
+  }, [group.tags, records])
 
   const findByTag = useCallback((tag: string) => {
     return {
@@ -31,15 +31,15 @@ export const TimeChart = ({ group }: { group: IGroup }) => {
       data: records.filter(record => record.tags.includes(tag)).map(record => record.amount),
       backgroundColor: uniqolor.random().color,
     }
-  }, [])
+  }, [records])
 
   const getTimePoints = useCallback(() => {
     return Array.from(new Set(findByTags().map(record => shortDate(record.date))))
-  }, [])
+  }, [findByTags])
 
   const getData = useMemo(() => {
     return group.tags?.map(tag => findByTag(tag)) || []
-  }, [group.tags]);
+  }, [group.tags, findByTag]);
 
   const data = {
     labels: getTimePoints(),

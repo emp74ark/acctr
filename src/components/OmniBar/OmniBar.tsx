@@ -29,7 +29,7 @@ export const OmniBar = () => {
         if (!input) dispatch(findRecords(""));
         break;
     }
-  }, [input]);
+  }, [input, type, dispatch]);
 
   const parseInput = useCallback(() => {
     if (input) dispatch(addRecord(inputParser(input)));
