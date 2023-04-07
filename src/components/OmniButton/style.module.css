@@ -1,0 +1,14 @@
+.omniButton {
+    background: lightgray;
+    font-size: 1em;
+    padding: .5em;
+    width: 5em;
+    border-radius: 0 18px 18px 0;
+    border: 0 solid darkgrey;
+    border-left-width: 1px;
+    cursor: pointer;
+}
+
+.omniButton:disabled {
+    cursor: not-allowed;
+}

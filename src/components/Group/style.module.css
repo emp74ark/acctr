@@ -1,0 +1,18 @@
+.group {
+    width: 30ch;
+    background: lightcyan;
+    padding: 1em;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em;
+    padding: 1em;
+    border: 1px dotted green;
+}
+
+.tags_over {
+    border-width: 2px;
+    background-color: #ffffff80;
+}

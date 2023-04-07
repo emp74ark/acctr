@@ -1,0 +1,52 @@
+import style from "./style.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { removeRecord } from "../../store/recordsSlice";
+import React, { useCallback, useState } from "react";
+import { IRecord } from "../../entities";
+import { RecordEditor } from "../../components";
+import { shortDate } from "../../utils";
+
+export const Records = () => {
+  const { records } = useSelector((state: RootState) => state.records);
+  const dispatch = useDispatch();
+  const [edit, setEdit] = useState<IRecord>();
+
+  const onRemove = useCallback((id: number) => dispatch(removeRecord(id)), [dispatch])
+
+  const onEdit = useCallback((record: IRecord) => setEdit(record), []);
+
+  const onCancel = useCallback(() => setEdit(undefined), []);
+
+  const dateDecorator = useCallback((date: number) => shortDate(date), []);
+
+  return (
+      <>
+        <h2>Records</h2>
+        <div className={style.records}>
+          <div className={`${style.record} ${style.records__header}`}>
+            <span>date</span>
+            <span>label</span>
+            <span>amount</span>
+            <span>tags</span>
+            <span>actions</span>
+          </div>
+          {
+            records.map(({ id, label, amount, date, tags }) => (
+                <div key={id} className={style.record}>
+                  <span>{dateDecorator(date)}</span>
+                  <span>{label}</span>
+                  <span>{amount}</span>
+                  <span>{tags.join(", ")}</span>
+                  <div>
+                    <button onClick={() => onEdit({ id, label, amount, date, tags })}>Edit</button>
+                    <button onClick={() => onRemove(id)}>Remove</button>
+                  </div>
+                </div>
+            ))
+          }
+        </div>
+        {edit && <RecordEditor record={edit} cb={onCancel}/>}
+      </>
+  );
+};

@@ -1,0 +1,39 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid darkgrey;
+    border-radius: 20px;
+    transition: margin-top .3s;
+}
+
+.add {
+    margin-top: 25vh;
+}
+
+.search {
+    margin-top: 1em;
+}
+
+.bar {
+    padding: .5em;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.error {
+    font-size: small;
+    font-style: italic;
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1ch;
+}
+
+.help {
+    font-size: small;
+    color: darkgrey;
+    list-style: square;
+}
