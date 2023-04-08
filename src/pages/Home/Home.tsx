@@ -1,4 +1,4 @@
-import { OmniBar } from "../../components";
+import {OmniBar} from "../../components";
 import React from "react";
 import style from "./style.module.css";
 

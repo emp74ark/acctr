@@ -33,7 +33,7 @@ export const Records = () => {
           </div>
           {
             records.map(({ id, label, amount, date, tags }) => (
-                <div key={id} className={style.record}>
+                <div key={id} id={id.toString()} className={style.record}>
                   <span>{dateDecorator(date)}</span>
                   <span>{label}</span>
                   <span>{amount}</span>
