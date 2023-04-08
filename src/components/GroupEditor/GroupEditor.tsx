@@ -50,8 +50,19 @@ export const GroupEditor = ({ group, cancel, type }: GroupEditorProps) => {
                 onChange={onTags}
             />
           </label>
-          <button disabled={!name} onClick={onSave}>Save</button>
-          <button onClick={onCancel}>Cancel</button>
+          <div className="buttons">
+            <button
+                className="btn btn__large btn__primary"
+                disabled={!name}
+                onClick={onSave}>
+              Save
+            </button>
+            <button
+                className="btn btn__large btn__secondary"
+                onClick={onCancel}>
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
   );

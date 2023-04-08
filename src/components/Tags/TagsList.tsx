@@ -9,7 +9,9 @@ export const TagsList = () => {
   return (
       <div className={style.tags}>
         <h3>Tags</h3>
-        {tags.map(tag => <Tag key={tag} tag={tag}/>)}
+        <div className={style.tags__list}>
+          {tags.map(tag => <Tag key={tag} tag={tag}/>)}
+        </div>
       </div>
   );
 };

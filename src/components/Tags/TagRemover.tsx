@@ -13,7 +13,7 @@ export const TagRemover = ({ group, tag, children }: { group: IGroup, tag: strin
 
   return (
       <div className={style.remover}>
-        <button onClick={onRemove}>-</button>
+        <button onClick={onRemove}/>
         {children}
       </div>
   );

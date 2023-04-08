@@ -38,9 +38,16 @@ export const Records = () => {
                   <span>{label}</span>
                   <span>{amount}</span>
                   <span>{tags.join(", ")}</span>
-                  <div>
-                    <button onClick={() => onEdit({ id, label, amount, date, tags })}>Edit</button>
-                    <button onClick={() => onRemove(id)}>Remove</button>
+                  <div className="buttons">
+                    <button className="btn btn__small btn__primary"
+                        onClick={() => onEdit({ id, label, amount, date, tags })}>
+                      Edit
+                    </button>
+                    <button
+                        className="btn btn__small btn__secondary"
+                        onClick={() => onRemove(id)}>
+                      Remove
+                    </button>
                   </div>
                 </div>
             ))

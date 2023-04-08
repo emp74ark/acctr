@@ -1,15 +1,59 @@
 .group {
   width: 30ch;
-  background: lightcyan;
-  padding: 1em;
+  background-color: var(--bgColorCard);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bgColorBasic);
+  border-radius: 1rem;
+  padding: .5rem 1rem;
+}
+
+.action {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  cursor: pointer;
+  transform: scale(1);
+  transition: all .4s;
+}
+
+.action:hover {
+  transform: scale(1.3);
+  transition: all .4s;
+}
+
+.action_text {
+  background: url("../../assets/icons/text.svg") no-repeat center;
+}
+
+.action_pie {
+  background: url("../../assets/icons/piechart.svg") no-repeat center;
+}
+
+.action_line {
+  background: url("../../assets/icons/linechart.svg") no-repeat center;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: .5em;
-  padding: 1em;
-  border: 1px dotted green;
+  gap: .5rem;
+  padding: 1rem;
+  margin: .5rem 0;
+  background-color: var(--bgColorDrop);
+  border-radius: 1rem;
 }
 
 .tags_over {

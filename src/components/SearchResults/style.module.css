@@ -13,5 +13,5 @@
 }
 
 .row:nth-child(odd) {
-  background: lightyellow;
+  background: var(--bgColorList);
 }

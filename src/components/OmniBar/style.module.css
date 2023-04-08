@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid darkgrey;
-  border-radius: 20px;
+  border: .01rem solid var(--borderColorDisabled);
+  border-radius: 2rem;
   transition: margin-top .3s;
 }
 
@@ -12,11 +12,11 @@
 }
 
 .search {
-  margin-top: 1em;
+  margin-top: 1rem;
 }
 
 .bar {
-  padding: .5em;
+  padding: .5rem;
   border: none;
   outline: none;
   width: 100%;

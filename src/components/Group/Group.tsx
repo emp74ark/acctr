@@ -41,22 +41,26 @@ export const Group = (group: IGroup) => {
 
   return (
       <div className={style.group}>
-        <h4>{group.name}</h4>
-        <button
-            onClick={() => onGroupView(GroupView.text)}
-            disabled={view === GroupView.text}>
-          Text
-        </button>
-        <button
-            onClick={() => onGroupView(GroupView.pieChart)}
-            disabled={view === GroupView.pieChart}>
-          Amount
-        </button>
-        <button
-            onClick={() => onGroupView(GroupView.timeChart)}
-            disabled={view === GroupView.timeChart}>
-          Time
-        </button>
+        <div className={style.header}>
+          <h4>{group.name}</h4>
+          <div className={style.actions}>
+            <button
+                className={`${style.action} ${style.action_text}`}
+                onClick={() => onGroupView(GroupView.text)}
+                disabled={view === GroupView.text}>
+            </button>
+            <button
+                className={`${style.action} ${style.action_pie}`}
+                onClick={() => onGroupView(GroupView.pieChart)}
+                disabled={view === GroupView.pieChart}>
+            </button>
+            <button
+                className={`${style.action} ${style.action_line}`}
+                onClick={() => onGroupView(GroupView.timeChart)}
+                disabled={view === GroupView.timeChart}>
+            </button>
+          </div>
+        </div>
         <div
             className={isOver ? `${style.tags} ${style.tags_over}` : style.tags}
             ref={dropRef}
@@ -78,8 +82,18 @@ export const Group = (group: IGroup) => {
         {view === GroupView.pieChart && <AmountChart group={group}/>}
         {view === GroupView.timeChart && <TimeChart group={group}/>}
 
-        <button onClick={onRemove}>Remove</button>
-        <button onClick={onEdit}>Edit</button>
+        <div className="buttons">
+          <button
+              className="btn btn__small btn__primary"
+              onClick={onRemove}>
+            Remove
+          </button>
+          <button
+              className="btn btn__small btn__secondary"
+              onClick={onEdit}>
+            Edit
+          </button>
+        </div>
         {edit && <GroupEditor type="edit" cancel={onEdit} group={group}/>}
       </div>
   );

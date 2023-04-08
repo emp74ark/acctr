@@ -1,18 +1,23 @@
 .records {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1rem;
 }
 
 .records__header {
-  background: #ccc;
+  background: var(--bgColorTableHeader);
+  font-weight: bold;
 }
 
 .record {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: .1em dotted darkgrey;
-  padding: .5em;
-  gap: .5em
+  border-radius: 1rem;
+  border: .1rem solid var(--borderColorDisabled);
+  padding: .5rem 1.5rem;
+}
+
+.record:nth-child(even) {
+  background-color: var(--bgColorTableRow);
 }

@@ -79,8 +79,19 @@ export const RecordEditor = ({ record, cb }: { record: IRecord, cb: () => void }
                 onChange={(e) => onChange(e, FieldName.date)}
             />
           </label>
-          <button disabled={!field} onClick={onSave}>Save</button>
-          <button onClick={onCancel}>Cancel</button>
+          <div className="buttons">
+            <button
+                className="btn btn__large btn__primary"
+                disabled={!field}
+                onClick={onSave}>
+              Save
+            </button>
+            <button
+                className="btn btn__large btn__secondary"
+                onClick={onCancel}>
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
   );

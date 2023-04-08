@@ -1,7 +1,13 @@
 .tags {
   width: 40ch;
-  background: floralwhite;
+  background: var(--bgColorList);
   padding: 1em;
+  border-radius: 1rem;
+}
+
+.tags__list {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .remover {
@@ -10,7 +16,9 @@
 
 .remover button {
   position: absolute;
-  top: -1em;
+  top: -.3rem;
+  width: .6rem;
+  height: .6rem;
   right: 0;
   background: firebrick;
   border: none;
@@ -18,10 +26,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(0.5);
+  transform: scale(1);
   transition: all .3s;
+  background: url("../../assets/icons/tagRemove.svg") no-repeat center;
 }
 
 .remover:hover button {
-  transform: scale(1);
+  transform: scale(2);
 }
