@@ -10,6 +10,7 @@
   --bgColorNav: #ECE77420;
   --bgColorCard: #8FD2AA13;
   --bgColorDrop: #6F94CC22;
+  --bgColorAccent: #D10BF1;
   --borderColorPrimary: #ABDFC0;
   --borderColorSecondary: #90ACD6;
   --borderColorDisabled: #B9B7B7;
@@ -18,6 +19,7 @@
   --fontColorInverse: #FFFFFF;
   --fontColorDisabled: #B8B5B5;
   --fontColorActive: #A71515;
+  --fontColorAccent: #D10BF1;
   --fontSizeBasic: 16px;
 }
 
@@ -42,6 +44,10 @@ h1, h2, h3 {
 h1 {
   font-size: 3rem;
   font-weight: bold;
+  color: var(--fontColorAccent);
+}
+h1::first-letter {
+  color: var(--fontColorBasic);
 }
 
 h2 {
