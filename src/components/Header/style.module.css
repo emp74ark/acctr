@@ -6,3 +6,9 @@
   justify-content: center;
   flex-direction: column;
 }
+
+@media (max-width: 460px) {
+  .header {
+    align-items: flex-start;
+  }
+}
