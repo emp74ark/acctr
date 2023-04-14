@@ -72,7 +72,7 @@
     right: 0;
     top: 0;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 0;
     height: 100%;
   }
 }
