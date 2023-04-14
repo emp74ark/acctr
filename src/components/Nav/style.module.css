@@ -56,7 +56,7 @@
   background: var(--bgColorBasic);
   align-items: center;
   justify-content: center;
-  font-size: 10vw;
+  font-size: 8vw;
   transition: all .5s;
   z-index: 90;
 }

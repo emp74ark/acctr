@@ -10,5 +10,10 @@
 @media (max-width: 460px) {
   .header {
     align-items: flex-start;
+    position: sticky;
+    top: 0;
+    padding-top: 1rem;
+    background: var(--bgColorBasic);
+    z-index: 10;
   }
 }
