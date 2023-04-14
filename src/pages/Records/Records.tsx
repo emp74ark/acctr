@@ -6,6 +6,7 @@ import React, { useCallback, useState } from "react";
 import { IRecord } from "../../entities";
 import { RecordEditor } from "../../components";
 import { shortDate } from "../../utils";
+import {RecordHeader} from "./RecordHeader";
 
 export const Records = () => {
   const { records } = useSelector((state: RootState) => state.records);
@@ -24,30 +25,27 @@ export const Records = () => {
       <>
         <h2>Records</h2>
         <div className={style.records}>
-          <div className={`${style.record} ${style.records__header}`}>
-            <span>date</span>
-            <span>label</span>
-            <span>amount</span>
-            <span>tags</span>
-            <span>actions</span>
-          </div>
+          <RecordHeader/>
           {
             records.map(({ id, label, amount, date, tags }) => (
-                <div key={id} id={id.toString()} className={style.record}>
-                  <span>{dateDecorator(date)}</span>
-                  <span>{label}</span>
-                  <span>{amount}</span>
-                  <span>{tags.join(", ")}</span>
-                  <div className="buttons">
-                    <button className="btn btn__small btn__primary"
-                        onClick={() => onEdit({ id, label, amount, date, tags })}>
-                      Edit
-                    </button>
-                    <button
-                        className="btn btn__small btn__secondary"
-                        onClick={() => onRemove(id)}>
-                      Remove
-                    </button>
+                <div key={id} id={id.toString()} className={style.row}>
+                  <RecordHeader/>
+                  <div className={style.record}>
+                    <span>{dateDecorator(date)}</span>
+                    <span>{label}</span>
+                    <span>{amount}</span>
+                    <span>{tags.join(", ")}</span>
+                    <div className="buttons">
+                      <button className="btn btn__small btn__primary"
+                          onClick={() => onEdit({ id, label, amount, date, tags })}>
+                        Edit
+                      </button>
+                      <button
+                          className="btn btn__small btn__secondary"
+                          onClick={() => onRemove(id)}>
+                        Remove
+                      </button>
+                    </div>
                   </div>
                 </div>
             ))

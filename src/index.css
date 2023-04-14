@@ -47,6 +47,7 @@ h1 {
   font-weight: bold;
   color: var(--fontColorAccent);
 }
+
 h1::first-letter {
   color: var(--fontColorBasic);
 }
@@ -68,6 +69,10 @@ h2 {
   height: 100%;
   left: 0;
   top: 0;
+}
+
+body:has(.shadow) {
+  overflow: hidden;
 }
 
 .modal {
@@ -163,10 +168,16 @@ aside {
 @media (max-width: 480px) {
   body {
     font-size: var(--fontSizeSmall);
+    padding: 0 1rem 1rem;
   }
   h1, h2, h3 {
     margin: 0 1rem;
     text-align: left;
     padding-bottom: 1ch;
+  }
+  .btn {
+    margin: .1rem;
+    padding: .2rem .3rem;
+    min-width: 10ch;
   }
 }

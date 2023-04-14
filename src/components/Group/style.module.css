@@ -60,3 +60,10 @@
   border-width: 2px;
   background-color: #ffffff80;
 }
+
+@media (max-width: 640px) {
+  .tags {
+    gap: .3rem;
+    padding: .7rem;
+  }
+}

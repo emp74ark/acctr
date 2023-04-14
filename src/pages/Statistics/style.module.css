@@ -10,3 +10,10 @@
   padding: 1em;
   flex-wrap: wrap;
 }
+
+@media (max-width: 460px) {
+  .page__wrapper{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
