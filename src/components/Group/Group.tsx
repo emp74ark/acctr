@@ -41,46 +41,48 @@ export const Group = (group: IGroup) => {
 
   return (
       <div className={style.group}>
-        <div className={style.header}>
-          <h4>{group.name}</h4>
-          <div className={style.actions}>
-            <button
-                className={`${style.action} ${style.action_text}`}
-                onClick={() => onGroupView(GroupView.text)}
-                disabled={view === GroupView.text}>
-            </button>
-            <button
-                className={`${style.action} ${style.action_pie}`}
-                onClick={() => onGroupView(GroupView.pieChart)}
-                disabled={view === GroupView.pieChart}>
-            </button>
-            <button
-                className={`${style.action} ${style.action_line}`}
-                onClick={() => onGroupView(GroupView.timeChart)}
-                disabled={view === GroupView.timeChart}>
-            </button>
+        <div>
+          <div className={style.header}>
+            <h4>{group.name}</h4>
+            <div className={style.actions}>
+              <button
+                  className={`${style.action} ${style.action_text}`}
+                  onClick={() => onGroupView(GroupView.text)}
+                  disabled={view === GroupView.text}>
+              </button>
+              <button
+                  className={`${style.action} ${style.action_pie}`}
+                  onClick={() => onGroupView(GroupView.pieChart)}
+                  disabled={view === GroupView.pieChart}>
+              </button>
+              <button
+                  className={`${style.action} ${style.action_line}`}
+                  onClick={() => onGroupView(GroupView.timeChart)}
+                  disabled={view === GroupView.timeChart}>
+              </button>
+            </div>
           </div>
+          <div
+              className={isOver ? `${style.tags} ${style.tags_over}` : style.tags}
+              ref={dropRef}
+          >
+            {group.tags?.map(tag => (
+                <TagRemover key={tag} group={group} tag={tag}>
+                  <Tag tag={tag}/>
+                </TagRemover>
+            ))}
+          </div>
+          {
+              view === GroupView.text &&
+              <ul>
+                {group.tags?.map(tag => (
+                    <li key={tag}>{tag}: {getAmountByTag(tag, records)}</li>
+                ))}
+              </ul>
+          }
+          {view === GroupView.pieChart && <AmountChart group={group}/>}
+          {view === GroupView.timeChart && <TimeChart group={group}/>}
         </div>
-        <div
-            className={isOver ? `${style.tags} ${style.tags_over}` : style.tags}
-            ref={dropRef}
-        >
-          {group.tags?.map(tag => (
-              <TagRemover key={tag} group={group} tag={tag}>
-                <Tag tag={tag}/>
-              </TagRemover>
-          ))}
-        </div>
-        {
-            view === GroupView.text &&
-            <ul>
-              {group.tags?.map(tag => (
-                  <li key={tag}>{tag}: {getAmountByTag(tag, records)}</li>
-              ))}
-            </ul>
-        }
-        {view === GroupView.pieChart && <AmountChart group={group}/>}
-        {view === GroupView.timeChart && <TimeChart group={group}/>}
 
         <div className="buttons">
           <button

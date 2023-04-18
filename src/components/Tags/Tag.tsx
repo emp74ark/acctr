@@ -29,12 +29,12 @@ export const Tag = ({ tag }: { tag: string }) => {
   });
 
   return (
-      <span
+      <div
           ref={dragRef}
           className="tag"
           style={{ opacity: isDragging ? ".5" : "1" }}
       >
             {tag}
-        </span>
+        </div>
   );
 };

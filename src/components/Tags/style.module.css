@@ -17,10 +17,10 @@
 
 .remover button {
   position: absolute;
-  top: -.3rem;
+  top: 0;
+  right: 0;
   width: .6rem;
   height: .6rem;
-  right: 0;
   background: firebrick;
   border: none;
   border-radius: 50%;
