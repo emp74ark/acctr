@@ -1,8 +1,12 @@
 .group {
   width: 30ch;
+  min-height: 20rem;
   background-color: var(--bgColorCard);
   padding: 1rem;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .header {
