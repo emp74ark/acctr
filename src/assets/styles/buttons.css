@@ -1,0 +1,49 @@
+.btn {
+  border-radius: 1rem;
+  border-width: .1rem;
+  border-style: solid;
+  margin: .5rem;
+  padding: .3rem .5rem;
+  font-weight: bold;
+  color: var(--fontColorInverse);
+  min-width: 10ch;
+}
+
+.btn:disabled {
+  background-color: var(--bgColorDisabled);
+  border-color: var(--borderColorDisabled);
+  color: var(--fontColorDisabled);
+}
+
+.btn__large {
+  font-size: 1rem;
+}
+
+.btn__small {
+  font-size: .8rem;
+}
+
+.btn__primary {
+  background-color: var(--bgColorPrimary);
+  border-color: var(--borderColorPrimary);
+}
+
+.btn__secondary {
+  background-color: var(--bgColorSecondary);
+  border-color: var(--borderColorSecondary);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    margin: .1rem;
+    padding: .2rem .3rem;
+    min-width: 10ch;
+  }
+}

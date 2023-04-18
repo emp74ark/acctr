@@ -1,0 +1,12 @@
+input {
+  border: .01rem solid var(--borderColorDisabled);
+  border-radius: 2rem;
+  padding: .5rem 1rem;
+}
+
+label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
