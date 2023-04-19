@@ -3,13 +3,23 @@ import React from "react";
 
 export const OmniHelp = () => {
   return (
-      <ul className={style.help}>
-        <li>default amount is '1'</li>
-        <li>it is not allowed to define more than one amount</li>
-        <li>label (any text without '*' or '#') is mandatory</li>
-        <li>change input type: Alt + '/'</li>
-        <li>'#' - tags</li>
-        <li>'*' - amount</li>
-      </ul>
+      <div className={style.help}>
+        <p>
+          The main idea is to save records via input using simple syntax,
+          where '#'&nbsp;means tag name and '*'&nbsp;means the amount of entities.
+          Than this records amount summarized by tag and can be visualized
+          at statistics page.
+        </p>
+        <p>
+          Tag name and description is mandatory. Amount is optional and
+          by default it is equal to 1.
+        </p>
+        <p>
+          It is not allowed to input more than one entity amount.
+        </p>
+        <p>
+          Hot-key to switch between 'search' and 'add' mode is Alt + '/'.
+        </p>
+      </div>
   );
 };
