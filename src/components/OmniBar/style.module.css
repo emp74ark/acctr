@@ -33,6 +33,8 @@
 }
 
 .help {
+  margin: 2rem auto;
+  width: 80%;
   font-size: small;
   color: darkgrey;
   list-style: square;
