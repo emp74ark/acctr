@@ -6,5 +6,5 @@ Application save, count and visualize entities by tags, that can be added using 
 **Mobile**:
 ![screeRecord](./src/assets/images/screenRecord.gif)
 
-**Descktop**:
+**Desktop**:
 ![screenDesktop](./src/assets/images/screenDesktop.png)

@@ -1,0 +1,23 @@
+.light {
+  --bgColorBasic: #FFFFFF;
+  --bgColorPrimary: #8FD2AA;
+  --bgColorSecondary: #6F94CC;
+  --bgColorDisabled: #D9D9D9;
+  --bgColorList: #D9D9D940;
+  --bgColorTableHeader: #D9D9D9;
+  --bgColorTableRow: rgba(217, 217, 217, 0.23);
+  --bgColorTag: #ECE774;
+  --bgColorNav: #ECE77420;
+  --bgColorCard: #8FD2AA13;
+  --bgColorDrop: #6F94CC22;
+  --bgColorAccent: #D10BF1;
+  --borderColorPrimary: #ABDFC0;
+  --borderColorSecondary: #90ACD6;
+  --borderColorDisabled: #B9B7B7;
+  --borderColorTag: #D8C942;
+  --fontColorBasic: #000000;
+  --fontColorInverse: #FFFFFF;
+  --fontColorDisabled: #B8B5B5;
+  --fontColorActive: #A71515;
+  --fontColorAccent: #D10BF1;
+}
