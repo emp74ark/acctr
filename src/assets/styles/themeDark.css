@@ -1,0 +1,23 @@
+.dark {
+  --bgColorBasic: #1d031d;
+  --bgColorPrimary: #5c8e70;
+  --bgColorSecondary: #5b6f8f;
+  --bgColorDisabled: #D9D9D9;
+  --bgColorList: #D9D9D940;
+  --bgColorTableHeader: #D9D9D9;
+  --bgColorTableRow: rgba(217, 217, 217, 0.6);
+  --bgColorTag: #ECE774;
+  --bgColorNav: #ECE77420;
+  --bgColorCard: rgba(146, 240, 181, 0.14);
+  --bgColorDrop: #6F94CC22;
+  --bgColorAccent: #D10BF1;
+  --borderColorPrimary: #7a9e89;
+  --borderColorSecondary: #607390;
+  --borderColorDisabled: #2a0a2a;
+  --borderColorTag: #D8C942;
+  --fontColorBasic: #FFFFFF;
+  --fontColorInverse: #000000;
+  --fontColorDisabled: #B8B5B5;
+  --fontColorActive: #cf5252;
+  --fontColorAccent: #D10BF1;
+}
