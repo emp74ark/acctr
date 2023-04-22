@@ -2,6 +2,7 @@ h1, h2, h3 {
   margin: auto;
   text-align: center;
   padding-bottom: 1ch;
+  color: var(--fontColorBasic);
 }
 
 h1 {
@@ -19,9 +20,13 @@ h2 {
   font-weight: bold;
 }
 
-h2 {
+h3 {
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+h4 {
+  color: var(--fontColorBasic);
 }
 
 @media (max-width: 480px) {

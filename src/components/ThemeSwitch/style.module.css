@@ -1,0 +1,33 @@
+.theme {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  transition: all .5s;
+}
+
+.theme_rotate {
+  transform: rotateY(180deg);
+}
+
+.theme__light,
+.theme__dark {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 0;
+  backface-visibility: hidden;
+}
+
+.theme__light {
+  background: url("../../assets/icons/themeLight.svg");
+}
+
+.theme__dark {
+  background: url("../../assets/icons/themeDark.svg");
+  transform: rotateY(-180deg);
+}
