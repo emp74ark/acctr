@@ -14,7 +14,7 @@ export const ThemeSwitch = () => {
   }, [theme]);
 
   const iconStyle = () => {
-    return theme === "dark"
+    return theme === "light"
         ? `${style.theme} ${style.theme_rotate}`
         : style.theme;
   };
