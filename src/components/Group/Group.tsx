@@ -1,15 +1,16 @@
-import { IGroup } from "../../entities";
+import {IGroup} from "../../entities";
 import style from "./style.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { removeGroup } from "../../store/groupsSlice";
-import { getAmountByTag } from "../../utils";
-import { RootState } from "../../store/store";
-import { useCallback, useState } from "react";
-import { GroupEditor } from "../GroupEditor";
-import { Tag } from "../Tags";
-import { useDrop } from "react-dnd";
-import { TagRemover } from "../Tags/TagRemover";
-import { AmountChart, TimeChart } from "../Chart";
+import {useDispatch, useSelector} from "react-redux";
+import {removeGroup} from "../../store/groupsSlice";
+import {getAmountByTag} from "../../utils";
+import {RootState} from "../../store/store";
+import {useCallback, useState} from "react";
+import {GroupEditor} from "../GroupEditor";
+import {Tag} from "../Tags";
+import {useDrop} from "react-dnd";
+import {TagRemover} from "../Tags/TagRemover";
+import {AmountChart, TimeChart} from "../Chart";
+import {useTranslation} from "react-i18next";
 
 enum GroupView {
   "pieChart" = "pieChart",
@@ -18,13 +19,14 @@ enum GroupView {
 }
 
 export const Group = (group: IGroup) => {
-  const { records } = useSelector((state: RootState) => state.records);
+  const {t} = useTranslation()
+  const {records} = useSelector((state: RootState) => state.records);
   const [view, setView] = useState<GroupView>(GroupView.pieChart);
   const dispatch = useDispatch();
   const [edit, setEdit] = useState<boolean>(false);
-  const [{ isOver }, dropRef] = useDrop({
+  const [{isOver}, dropRef] = useDrop({
     accept: "tag",
-    drop: () => ({ group }),
+    drop: () => ({group}),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
@@ -88,12 +90,12 @@ export const Group = (group: IGroup) => {
           <button
               className="btn btn__small btn__primary"
               onClick={onRemove}>
-            Remove
+            {t('remove')}
           </button>
           <button
               className="btn btn__small btn__secondary"
               onClick={onEdit}>
-            Edit
+            {t('edit')}
           </button>
         </div>
         {edit && <GroupEditor type="edit" cancel={onEdit} group={group}/>}

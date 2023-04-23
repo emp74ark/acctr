@@ -1,11 +1,11 @@
-import { CategoryScale, Chart as ChartJS, Legend, LinearScale, LineElement, PointElement, Tooltip, } from "chart.js";
-import { Line } from "react-chartjs-2";
-import { IGroup } from "../../entities";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import {CategoryScale, Chart as ChartJS, Legend, LinearScale, LineElement, PointElement, Tooltip,} from "chart.js";
+import {Line} from "react-chartjs-2";
+import {IGroup} from "../../entities";
+import {useSelector} from "react-redux";
+import {RootState} from "../../store/store";
 import uniqolor from "uniqolor";
-import { shortDate } from "../../utils";
-import { useCallback, useMemo } from "react";
+import {shortDate} from "../../utils";
+import {useCallback, useMemo} from "react";
 
 ChartJS.register(
     CategoryScale,
@@ -16,8 +16,8 @@ ChartJS.register(
     Legend
 );
 
-export const TimeChart = ({ group }: { group: IGroup }) => {
-  const { records } = useSelector((state: RootState) => state.records);
+export const TimeChart = ({group}: { group: IGroup }) => {
+  const {records} = useSelector((state: RootState) => state.records);
 
   const findByTags = useCallback(() => {
     return records.filter(record => {

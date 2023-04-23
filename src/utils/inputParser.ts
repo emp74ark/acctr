@@ -1,4 +1,4 @@
-import { IRecord } from "../entities";
+import {IRecord} from "../entities";
 
 export function inputParser(text: string): IRecord {
   const elements = text.split(" ");

@@ -1,1 +1,1 @@
-export { OmniBar } from "./OmniBar";
+export {OmniBar} from "./OmniBar";

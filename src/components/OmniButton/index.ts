@@ -1,1 +1,1 @@
-export { OmniButton } from "./OmniButton";
+export {OmniButton} from "./OmniButton";

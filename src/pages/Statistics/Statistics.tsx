@@ -1,11 +1,13 @@
 import style from "./style.module.css";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import { useCallback, useState } from "react";
-import { Group, GroupEditor, TagsList } from "../../components";
+import {useSelector} from "react-redux";
+import {RootState} from "../../store/store";
+import {useCallback, useState} from "react";
+import {Group, GroupEditor, TagsList} from "../../components";
+import {useTranslation} from "react-i18next";
 
 export const Statistics = () => {
-  const { groups: { groups } } = useSelector((state: RootState) => state);
+  const {t} = useTranslation()
+  const {groups: {groups}} = useSelector((state: RootState) => state);
   const [current, setCurrent] = useState<string>();
 
   const openAddGroupModal = useCallback(() => setCurrent("New group"), []);
@@ -14,7 +16,7 @@ export const Statistics = () => {
 
   return (
       <>
-        <h2>Statistics</h2>
+        <h2>{t('statisticsHeader')}</h2>
         <div className={style.page__wrapper}>
           <div>
             <div className={style.groups}>
@@ -25,7 +27,7 @@ export const Statistics = () => {
             <button
                 className="btn btn__large btn__primary"
                 onClick={openAddGroupModal}>
-              Add group
+              {t('addGroup')}
             </button>
             <TagsList/>
           </aside>
@@ -35,7 +37,7 @@ export const Statistics = () => {
             <GroupEditor
                 type="add"
                 cancel={closeAddGroupModal}
-                group={{ id: Date.now(), name: current }}
+                group={{id: Date.now(), name: current}}
             />
         }
       </>
