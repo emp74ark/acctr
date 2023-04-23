@@ -69,6 +69,7 @@
   .nav > ul {
     display: none;
   }
+
   .nav .burger,
   .nav .mobile__nav {
     display: flex;

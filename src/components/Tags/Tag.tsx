@@ -1,22 +1,22 @@
-import { useDrag } from "react-dnd";
-import { IGroup } from "../../entities";
-import { useDispatch } from "react-redux";
-import { editGroup } from "../../store/groupsSlice";
+import {useDrag} from "react-dnd";
+import {IGroup} from "../../entities";
+import {useDispatch} from "react-redux";
+import {editGroup} from "../../store/groupsSlice";
 
 interface DropResults {
   dropEffect: string;
   group: IGroup;
 }
 
-export const Tag = ({ tag }: { tag: string }) => {
+export const Tag = ({tag}: { tag: string }) => {
   const dispatch = useDispatch();
-  const [{ isDragging }, dragRef] = useDrag({
+  const [{isDragging}, dragRef] = useDrag({
     type: "tag",
-    item: { name: tag },
+    item: {name: tag},
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult<DropResults>();
       if (dropResult) {
-        const { group } = dropResult;
+        const {group} = dropResult;
         dispatch(editGroup({
           ...group,
           tags: [...group.tags || [], item.name],
@@ -32,9 +32,9 @@ export const Tag = ({ tag }: { tag: string }) => {
       <div
           ref={dragRef}
           className="tag"
-          style={{ opacity: isDragging ? ".5" : "1" }}
+          style={{opacity: isDragging ? ".5" : "1"}}
       >
-            {tag}
-        </div>
+        {tag}
+      </div>
   );
 };

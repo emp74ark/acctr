@@ -9,4 +9,4 @@ export * from "./GroupEditor";
 export * from "./Tags";
 export * from "./SearchResults";
 export * from "./Chart";
-export * from "./ThemeSwitch";
+export * from "./Settings";

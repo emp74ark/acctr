@@ -12,10 +12,11 @@
 }
 
 @media (max-width: 460px) {
-  .page__wrapper{
+  .page__wrapper {
     flex-direction: column-reverse;
     align-items: center;
   }
+
   .groups {
     justify-content: center;
   }

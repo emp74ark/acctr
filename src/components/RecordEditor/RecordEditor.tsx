@@ -1,8 +1,9 @@
-import { IRecord } from "../../entities";
-import { useDispatch } from "react-redux";
-import { editRecord } from "../../store/recordsSlice";
-import { ChangeEvent, useCallback, useState } from "react";
-import { shortDate } from "../../utils";
+import {IRecord} from "../../entities";
+import {useDispatch} from "react-redux";
+import {editRecord} from "../../store/recordsSlice";
+import {ChangeEvent, useCallback, useState} from "react";
+import {shortDate} from "../../utils";
+import {useTranslation} from "react-i18next";
 
 enum FieldName {
   label = "label",
@@ -11,8 +12,9 @@ enum FieldName {
   date = "date"
 }
 
-export const RecordEditor = ({ record, cb }: { record: IRecord, cb: () => void }) => {
-  const { label, amount, tags, date } = record;
+export const RecordEditor = ({record, cb}: { record: IRecord, cb: () => void }) => {
+  const {t} = useTranslation();
+  const {label, amount, tags, date} = record;
   const dispatch = useDispatch();
   const [field, setField] = useState<Record<string, string | number | string[]>>();
 
@@ -51,28 +53,32 @@ export const RecordEditor = ({ record, cb }: { record: IRecord, cb: () => void }
   return (
       <div className="shadow">
         <div className="modal">
-          <label>Label
+          <label>
+            {t('labelHeader')}
             <input
                 type="text"
                 defaultValue={label}
                 onChange={(e) => onChange(e, FieldName.label)}
             />
           </label>
-          <label>Tags
+          <label>
+            {t('tagsHeader')}
             <input
                 type="text"
                 defaultValue={tags.join(", ")}
                 onChange={(e) => onChange(e, FieldName.tags)}
             />
           </label>
-          <label>Amount
+          <label>
+            {t("amountHeader")}
             <input
                 type="text"
                 defaultValue={amount}
                 onChange={(e) => onChange(e, FieldName.amount)}
             />
           </label>
-          <label>Amount
+          <label>
+            {t("dateHeader")}
             <input
                 type="date"
                 defaultValue={shortDate(date)}
@@ -84,12 +90,12 @@ export const RecordEditor = ({ record, cb }: { record: IRecord, cb: () => void }
                 className="btn btn__large btn__primary"
                 disabled={!field}
                 onClick={onSave}>
-              Save
+              {t('save')}
             </button>
             <button
                 className="btn btn__large btn__secondary"
                 onClick={onCancel}>
-              Cancel
+              {t('cancel')}
             </button>
           </div>
         </div>

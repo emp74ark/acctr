@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import {configureStore} from "@reduxjs/toolkit";
 import recordsSlice from "./recordsSlice";
 import groupsSlice from "./groupsSlice";
 

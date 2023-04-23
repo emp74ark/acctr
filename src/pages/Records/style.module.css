@@ -47,18 +47,22 @@
     display: flex;
     gap: .5rem;
   }
+
   .row > .records__header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: max-content;
   }
+
   .row > .records__header span:last-child {
     display: none;
   }
+
   .records > .records__header {
     display: none;
   }
+
   .record {
     border-radius: .5rem;
     padding: .5rem;
@@ -67,6 +71,7 @@
     width: 100%;
     position: relative;
   }
+
   .record > div {
     position: absolute;
     right: 0;

@@ -1,14 +1,14 @@
-import { OmniHint } from "../OmniHint";
-import { ChangeEvent, useCallback, useEffect, useState } from "react";
+import {OmniHint} from "../OmniHint";
+import {ChangeEvent, useCallback, useEffect, useState} from "react";
 import style from "./style.module.css";
-import { OmniActionType } from "./OmniBar.types";
-import { OmniButton } from "../OmniButton";
-import { inputParser, mandatorySymbols } from "../../utils";
-import { useDispatch } from "react-redux";
-import { addRecord, findRecords } from "../../store/recordsSlice";
-import { OmniHelp } from "./OmniHelp";
-import { OmniError } from "./OmniError";
-import { SearchResults } from "../SearchResults";
+import {OmniActionType} from "./OmniBar.types";
+import {OmniButton} from "../OmniButton";
+import {inputParser, mandatorySymbols} from "../../utils";
+import {useDispatch} from "react-redux";
+import {addRecord, findRecords} from "../../store/recordsSlice";
+import {OmniHelp} from "./OmniHelp";
+import {OmniError} from "./OmniError";
+import {SearchResults} from "../SearchResults";
 
 export const OmniBar = () => {
   const [type, setType] = useState<OmniActionType>(OmniActionType.add);

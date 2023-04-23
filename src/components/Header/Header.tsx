@@ -1,6 +1,6 @@
 import style from "./style.module.css";
-import { Nav } from "../Nav";
-import { useNavigate } from "react-router-dom";
+import {Nav} from "../Nav";
+import {useNavigate} from "react-router-dom";
 import {useCallback} from "react";
 
 export const Header = () => {

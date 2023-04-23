@@ -1,9 +1,11 @@
-import { ChangeEvent, useCallback, useState } from "react";
-import { useDispatch } from "react-redux";
-import { addGroup, editGroup } from "../../store/groupsSlice";
-import { GroupEditorProps } from "./GroupEditor.types";
+import {ChangeEvent, useCallback, useState} from "react";
+import {useDispatch} from "react-redux";
+import {addGroup, editGroup} from "../../store/groupsSlice";
+import {GroupEditorProps} from "./GroupEditor.types";
+import {useTranslation} from "react-i18next";
 
-export const GroupEditor = ({ group, cancel, type }: GroupEditorProps) => {
+export const GroupEditor = ({group, cancel, type}: GroupEditorProps) => {
+  const {t} = useTranslation()
   const [name, setName] = useState<string>(group.name);
   const [tags, setTags] = useState<string[]>(group?.tags ? group.tags : []);
   const dispatch = useDispatch();
@@ -17,7 +19,7 @@ export const GroupEditor = ({ group, cancel, type }: GroupEditorProps) => {
   }, []);
 
   const onSave = useCallback(() => {
-    const newData = { ...group, name, tags };
+    const newData = {...group, name, tags};
     switch (type) {
       case "add":
         dispatch(addGroup(newData));
@@ -36,14 +38,16 @@ export const GroupEditor = ({ group, cancel, type }: GroupEditorProps) => {
   return (
       <div className="shadow">
         <div className="modal">
-          <label>Group name
+          <label>
+            {t('groupName')}
             <input
                 type="text"
                 defaultValue={name}
                 onChange={onName}
             />
           </label>
-          <label>Tags
+          <label>
+            {t('tagsHeader')}
             <input
                 type="text"
                 defaultValue={tags.join(", ")}
@@ -55,12 +59,12 @@ export const GroupEditor = ({ group, cancel, type }: GroupEditorProps) => {
                 className="btn btn__large btn__primary"
                 disabled={!name}
                 onClick={onSave}>
-              Save
+              {t('save')}
             </button>
             <button
                 className="btn btn__large btn__secondary"
                 onClick={onCancel}>
-              Cancel
+              {t('cancel')}
             </button>
           </div>
         </div>

@@ -1,2 +1,2 @@
-export { AmountChart } from "./AmountChart";
-export { TimeChart } from "./TimeChart";
+export {AmountChart} from "./AmountChart";
+export {TimeChart} from "./TimeChart";

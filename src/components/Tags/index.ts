@@ -1,2 +1,2 @@
-export { TagsList } from "./TagsList";
-export { Tag } from "./Tag";
+export {TagsList} from "./TagsList";
+export {Tag} from "./Tag";

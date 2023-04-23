@@ -1,8 +1,23 @@
-.theme {
+.settings {
   position: absolute;
   top: 2rem;
   right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--fontColorBasic);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.theme {
   width: 2rem;
+  height: 2rem;
   cursor: pointer;
   display: flex;
   flex-direction: column;

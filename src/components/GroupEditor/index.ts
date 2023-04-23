@@ -1,1 +1,1 @@
-export { GroupEditor } from "./GroupEditor";
+export {GroupEditor} from "./GroupEditor";
