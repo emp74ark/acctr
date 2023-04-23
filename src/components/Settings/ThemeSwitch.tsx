@@ -1,13 +1,13 @@
 import style from "./style.module.css";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 
 export const ThemeSwitch = () => {
   const [theme, setTheme] = useState<string>("light");
 
   const root = document.querySelector("body") as HTMLElement;
-  const themeToggle = () => {
+  const themeToggle = useCallback(() => {
     setTheme(theme === "light" ? "dark" : "light");
-  };
+  }, [theme]);
 
   useEffect(() => {
     root.className = theme

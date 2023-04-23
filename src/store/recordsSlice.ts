@@ -1,5 +1,5 @@
-import { IRecord } from "../entities";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {IRecord} from "../entities";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 interface RecordsState {
   records: IRecord[];
@@ -17,7 +17,7 @@ const initialState: RecordsState = {
 
 const getTags = (records: IRecord[]) => {
   const tagsSet: Set<string> = new Set();
-  records.forEach(({ tags }) => tags.forEach(tag => tagsSet.add(tag)));
+  records.forEach(({tags}) => tags.forEach(tag => tagsSet.add(tag)));
   return Array.from(tagsSet);
 };
 

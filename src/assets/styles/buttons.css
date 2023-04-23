@@ -6,7 +6,7 @@
   padding: .3rem .5rem;
   font-weight: bold;
   color: var(--fontColorInverse);
-  min-width: 10ch;
+  min-width: 12ch;
 }
 
 .btn:disabled {
