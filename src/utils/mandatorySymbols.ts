@@ -3,7 +3,7 @@ export function mandatorySymbols(text: string) {
   const label = text.split(" ").filter(w => !w.match(/^[*,#]/)).length === 0;
 
   return {
-    amount: amount ? "too many amount values" : "",
-    label: label ? "label is required" : "",
+    amount: amount ? "manyAmount" : "",
+    label: label ? "labelRequired" : "",
   };
 }

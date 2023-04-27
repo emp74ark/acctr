@@ -1,14 +1,16 @@
-import {useCallback, useState} from "react";
-import i18n from "../../i18n";
-import style from './style.module.css'
+import {useCallback} from "react";
+import style from "./style.module.css";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../../store/store";
+import {toggleLanguage} from "../../store/settingsSlice";
 
 export const LanguageSwitch = () => {
-  const [language, setLanguage] = useState<string>('en');
+  const {language} = useSelector((state: RootState) => state.settings);
+  const dispatch = useDispatch();
 
   const languageToggle = useCallback(() => {
-    setLanguage(language === 'en' ? 'ru' : 'en')
-    i18n.changeLanguage(language)
-  }, [language, i18n])
+    dispatch(toggleLanguage(language === "en" ? "ru" : "en"));
+  }, [language]);
 
   return (
       <div
