@@ -1,16 +1,20 @@
 import style from "./style.module.css";
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../../store/store";
+import {toggleTheme} from "../../store/settingsSlice";
 
 export const ThemeSwitch = () => {
-  const [theme, setTheme] = useState<string>("light");
+  const {theme} = useSelector((state: RootState) => state.settings);
+  const dispatch = useDispatch();
 
   const root = document.querySelector("body") as HTMLElement;
   const themeToggle = useCallback(() => {
-    setTheme(theme === "light" ? "dark" : "light");
+    dispatch(toggleTheme(theme === "light" ? "dark" : "light"));
   }, [theme]);
 
   useEffect(() => {
-    root.className = theme
+    root.className = theme;
   }, [theme]);
 
   const iconStyle = () => {
